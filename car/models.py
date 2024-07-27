@@ -2,6 +2,7 @@ from django.db import models
 from .validators import validate_year
 
 
+# these classes are related to the Car app in this site
 class Car(models.Model):
     brand = models.CharField(max_length=100)
     model = models.CharField(max_length=100)

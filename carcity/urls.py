@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import home_page
 
+# each app should have a unique path added here and apps path also should have included.
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_page),
