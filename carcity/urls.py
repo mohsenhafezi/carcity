@@ -16,12 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 # each app should have a unique path added here, and app paths also should have included.
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('car/', include('car.urls')),
     path('', include('home.urls')),
-
 ]
+
+# this if connect the media root to the django
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

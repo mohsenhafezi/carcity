@@ -18,6 +18,7 @@ class Person(models.Model):
 class Car(models.Model):
     brand = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='carcity/images/',blank=True,null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     # this auto now adds feature will add date time automatically to the field
     # if we have an update record, it should have an "auto_now = True"
