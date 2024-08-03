@@ -18,7 +18,7 @@ class Person(models.Model):
 class Car(models.Model):
     brand = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='carcity/images/',blank=True,null=True)
+    image = models.ImageField(upload_to='carcity/images/', blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     # this auto now adds feature will add date time automatically to the field
     # if we have an update record, it should have an "auto_now = True"
@@ -28,6 +28,7 @@ class Car(models.Model):
     price = models.DecimalField(max_digits=20, decimal_places=2)
     city = models.CharField(max_length=100)
     registered_by = models.ForeignKey(Person, on_delete=models.CASCADE)
+    is_show = models.BooleanField(default=True)
 
     # if Person class defined after the car model, then we can introduce Person as string to avoid an error:
     # registered_by = models.ForeignKey("Person", on_delete=models.CASCADE)
