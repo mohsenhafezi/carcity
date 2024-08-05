@@ -12,6 +12,5 @@ def car_page(request):
 def car_detail(request, car_id):
     car = Car.objects.get(id=car_id)
     context = {'car': car}
-    # return render(request, template_name='car/detail_car.html', context=context)
-    return HttpResponse(car.model)
+    return render(request, template_name='car/car_detail.html', context=context)
 
