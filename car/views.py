@@ -14,3 +14,4 @@ def car_detail(request, car_id):
     context = {'car': car}
     # return render(request, template_name='car/detail_car.html', context=context)
     return HttpResponse(car.model)
+

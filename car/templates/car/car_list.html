@@ -276,39 +276,41 @@
         <div class="col s12">
             <div class="container">
                 {% if cars %}
-                	<div class="section">
-                    <div class="card">
-                        <div class="card-content">
-                            <p class="caption mb-0">تست شهرک نمایشگاهی خودرو MOHI</p>
+                    <div class="section">
+                        <div class="card">
+                            <div class="card-content">
+                                <p class="caption mb-0">تست شهرک نمایشگاهی خودرو MOHI</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h4 class="col s12">خودروها</h4>
+                            {#this div's show the cars#}
+                            <div class="col s12 m12 grid">
+                                {% for car in cars %}
+                                    <figure class="effect-ruby">
+                                        {#using car model to show cars in the for loop#}
+                                        <img src="{{ car.image.url }}" alt="{{ car.brand }} {{ car.model }}"
+                                             width="100%" height="300"/>
+                                        <figcaption>
+                                            <h2>
+                                                <span>{{ car.year }}-{{ car.model }}</span>
+                                            </h2>
+                                            {#information that shown in hover#}
+                                            <p>
+                                                کارکرد:{{ car.kilometers }}
+                                                <br>
+                                                قیمت: {{ car.price }}
+                                                <br>
+                                                تاریخ ثبت: {{ car.created_date|date:"o/m/d" }}
+                                            </p>
+{#                                            this a tag send user to car_detail page#}
+                                            <a href="{% url 'car:car_detail' car.id %}">View more</a>
+                                        </figcaption>
+                                    </figure>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <h4 class="col s12">خودروها</h4>
-                        {#this div's show the cars#}
-                        <div class="col s12 m12 grid">
-                            {% for car in cars %}
-                                <figure class="effect-ruby">
-                                    {#using car model to show cars in the for loop#}
-                                    <img src="{{ car.image.url }}" alt="{{ car.brand }} {{ car.model }}" width="100%" height="300"/>
-                                    <figcaption>
-                                        <h2>
-                                            <span>{{ car.year }}-{{ car.model }}</span>
-                                        </h2>
-                                        {#information that shown in hover#}
-                                        <p>
-                                            کارکرد:{{ car.kilometers }}
-                                            <br>
-                                            قیمت: {{ car.price }}
-                                            <br>
-                                            تاریخ ثبت: {{ car.created_date|date:"o/m/d" }}
-                                        </p>
-                                        <a href="">View more</a>
-                                    </figcaption>
-                                </figure>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
                 {% endif %}
             </div>
             <div class="content-overlay"></div>
