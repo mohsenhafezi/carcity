@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from .models import Car
 
@@ -10,7 +10,10 @@ def car_page(request):
 
 
 def car_detail(request, car_id):
-    car = Car.objects.get(id=car_id)
-    context = {'car': car}
-    return render(request, template_name='car/car_detail.html', context=context)
+    try:
+        car = Car.objects.get(id=car_id)
+        context = {'car': car}
+        return render(request, template_name='car/car_detail.html', context=context)
+    except Car.DoesNotExist:
+        raise Http404("Car DoesNotExist")
 

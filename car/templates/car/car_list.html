@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load humanize %}
 <!DOCTYPE html>
 
 <html class="loading" lang="en" data-textdirection="rtl">
@@ -228,27 +228,32 @@
 <aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-dark sidenav-active-rounded">
     <div class="brand-sidebar">
         <h1 class="logo-wrapper">
-            <a class="brand-logo darken-1" href=""><img class="hide-on-med-and-down "
-                                                        src="{% static 'app-assets/images/logo/Logo.png' %}"
-                                                        alt="carcity logo"/><img
-                    class="show-on-medium-and-down hide-on-med-and-up"
-                    src="{% static 'app-assets/images/logo/Logo.png' %}"
-                    alt="carcity logo"/><span class="logo-text hide-on-med-and-down">شهرک خودرویی</span></a><a
-                class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
+            <a class="brand-logo darken-1" href="http://localhost:8000/">
+                <img class="hide-on-med-and-down "
+                     src="{% static 'app-assets/images/logo/Logo.png' %}"
+                     alt="carcity logo"/>
+                <img class="show-on-medium-and-down hide-on-med-and-up"
+                     src="{% static 'app-assets/images/logo/Logo.png' %}"
+                     alt="carcity logo"/>
+                <span class="logo-text hide-on-med-and-down">شهرک خودرویی</span>
+            </a>
+            <a class="navbar-toggler" href="#">
+                <i class="material-icons">radio_button_checked</i>
+            </a>
+        </h1>
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out"
         data-menu="menu-navigation" data-collapsible="accordion">
         <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="Javascript:void(0)"><i
-                class="material-icons">receipt</i><span class="menu-title" data-i18n="Invoice">نمونه</span></a>
+                class="material-icons">receipt</i><span class="menu-title" data-i18n="Invoice">خودروها</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                    <li><a href=""><i class="material-icons">radio_button_unchecked</i><span data-i18n="Invoice List">لیست فاکتور</span></a>
+                    <li><a href=""><i class="material-icons">radio_button_unchecked</i><span data-i18n="Invoice List">ثبت خودرو جدید</span></a>
                     </li>
-                    <li><a href=""><i class="material-icons">radio_button_unchecked</i><span data-i18n="Invoice View">نمای فاکتور</span></a>
+                    <li><a href="{% url 'car:car_page' %}"><i class="material-icons">radio_button_unchecked</i><span
+                            data-i18n="Invoice View">لیست خودروها</span></a>
                     </li>
-                    <li><a href=""><i class="material-icons">radio_button_unchecked</i><span data-i18n="Invoice Edit">ویرایش فاکتور</span></a>
-                    </li>
-                    <li><a href=""><i class="material-icons">radio_button_unchecked</i><span data-i18n="Invoice Add">اضافه کردن فاکتور</span></a>
+                    <li><a href=""><i class="material-icons">radio_button_unchecked</i><span data-i18n="Invoice Edit">صفحه جستجو</span></a>
                     </li>
                 </ul>
             </div>
@@ -287,23 +292,23 @@
                             {#this div's show the cars#}
                             <div class="col s12 m12 grid">
                                 {% for car in cars %}
-                                    <figure class="effect-ruby">
+                                    <figure class="effect-sarah">
                                         {#using car model to show cars in the for loop#}
                                         <img src="{{ car.image.url }}" alt="{{ car.brand }} {{ car.model }}"
                                              width="100%" height="300"/>
                                         <figcaption>
                                             <h2>
-                                                <span>{{ car.year }}-{{ car.model }}</span>
+                                                <span style="color: white">{{ car.year }}-{{ car.model }}</span>
                                             </h2>
                                             {#information that shown in hover#}
                                             <p>
-                                                کارکرد:{{ car.kilometers }}
+                                                کارکرد:{{ car.kilometers | intcomma }}
                                                 <br>
-                                                قیمت: {{ car.price }}
+                                                قیمت: {{ car.price | intcomma }}
                                                 <br>
                                                 تاریخ ثبت: {{ car.created_date|date:"o/m/d" }}
                                             </p>
-{#                                            this a tag send user to car_detail page#}
+                                            {#                                            this a tag send user to car_detail page#}
                                             <a href="{% url 'car:car_detail' car.id %}">View more</a>
                                         </figcaption>
                                     </figure>
