@@ -25,7 +25,7 @@ class Car(models.Model):
     color = models.CharField(max_length=50)
     year = models.PositiveIntegerField(validators=[validate_year])
     kilometers = models.PositiveIntegerField()
-    price = models.DecimalField(max_digits=20, decimal_places=2)
+    price = models.PositiveIntegerField()
     city = models.CharField(max_length=100)
     registered_by = models.ForeignKey(Person, on_delete=models.CASCADE)
     is_show = models.BooleanField(default=True)

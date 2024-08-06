@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 
 <!DOCTYPE html>
 
@@ -304,13 +305,13 @@
 {#                                                    <span class="vertical-align-top mr-4"><i class="material-icons mr-3">favorite_border</i>لیست علاقه مندی ها</span>#}
                                                     <ul class="list-bullet">
                                                         <li class="list-item-bullet">سال ساخت: {{ car.year }}</li>
-                                                        <li class="list-item-bullet">میزان کارکرد: {{ car.kilometers}} کیلومتر </li>
+                                                        <li class="list-item-bullet">میزان کارکرد: {{ car.kilometers | intcomma}} کیلومتر </li>
                                                         <li class="list-item-bullet">شهر: {{ car.city }}</li>
                                                         <li class="list-item-bullet">رنگ: {{ car.color }}</li>
                                                         <li class="list-item-bullet">ثبت کننده آگهی: {{ car.registered_by }}</li>
-                                                        <li class="list-item-bullet">تاریخ ثبت آگهی: {{ car.created_date | date }}</li>
+                                                        <li class="list-item-bullet">تاریخ ثبت آگهی: {{ car.created_date | date:"Y/m/d" }}</li>
                                                     </ul>
-                                                    <h5 class="red-text">تومان: {{ car.price }}</h5>
+                                                    <h5 class="red-text">تومان: {{ car.price | intcomma }}</h5>
                                                     <a class="waves-effect waves-light btn gradient-45deg-purple-deep-orange z-depth-4 mt-2">هم اکنون خریداری کنید</a>
                                                 </div>
                                             </div>
