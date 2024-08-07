@@ -16,26 +16,7 @@
           content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
     <meta name="author" content="ThemeSelect">
     <title>{% block title %}{% endblock title %}</title>
-    <link rel="apple-touch-icon" href="{% static 'app-assets/images/favicon/apple-touch-icon-152x152.png' %}">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'app-assets/images/favicon/favicon-32x32.png' %}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- BEGIN: VENDOR CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/vendors.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/flag-icon/css/flag-icon.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/magnific-popup/magnific-popup.css' %}">
-    <!-- END: VENDOR CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css-rtl/style-rtl.min.css' %}">
-    <!-- BEGIN: Page Level CSS-->
-    <link rel="stylesheet" type="text/css"
-          href="{% static 'app-assets/css-rtl/themes/vertical-dark-menu-template/materialize.min.css' %}">
-    <link rel="stylesheet" type="text/css"
-          href="{% static 'app-assets/css-rtl/themes/vertical-dark-menu-template/style.min.css' %}">
-    <link rel="stylesheet" type="text/css"
-          href="{% static 'app-assets/vendors/hover-effects/media-hover-effects.css' %}">
-    <!-- END: Page Level CSS-->
-    <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css-rtl/custom/custom.css' %}">
-    <!-- END: Custom CSS-->
+    {% include 'base/header_ref.html' %}
 </head>
 <!-- END: Head-->
 
@@ -43,56 +24,9 @@
       data-open="click" data-menu="vertical-dark-menu" data-col="2-columns">
 
 <!-- BEGIN: Header-->
-<header class="page-topbar" id="header">
-    <div class="navbar navbar-fixed">
-        <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-light">
-            <div class="nav-wrapper">
-                <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
-                    <input class="header-search-input z-depth-2 iransans" type="text" name="Search"
-                           placeholder="جست و جو..." data-search="template-list">
-                    <ul class="search-list collection display-none"></ul>
-                </div>
-                <ul class="navbar-list right">
-                    <li style="color: #0b0b0b"><strong>{% now 'H:i - Y/d/m' %}</strong></li>
-                    <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);"
-                           data-target="profile-dropdown"><span class="avatar-status avatar-online"><img
-                            src="{% static 'app-assets/images/avatar/avatar-7.png' %}" alt="avatar"><i></i></span></a>
-                    </li>
-                </ul>
-
-                <!-- profile-dropdown-->
-                <ul class="dropdown-content" id="profile-dropdown">
-                    <li><a class="grey-text text-darken-1" href=""><i class="material-icons">person_outline</i>
-                        مشخصات</a></li>
-                    <li><a class="grey-text text-darken-1" href=""><i class="material-icons">chat_bubble_outline</i>
-                        چت</a></li>
-                    <li><a class="grey-text text-darken-1" href=""><i
-                            class="material-icons">help_outline</i> راهنمایی</a></li>
-                    <li class="divider"></li>
-                    <li><a class="grey-text text-darken-1" href=""><i class="material-icons">lock_outline</i>
-                        قفل کردن</a></li>
-                    <li><a class="grey-text text-darken-1" href=""><i
-                            class="material-icons">keyboard_tab</i> خروج</a></li>
-                </ul>
-            </div>
-            <nav class="display-none search-sm">
-                <div class="nav-wrapper">
-                    <form id="navbarForm">
-                        <div class="input-field search-input-sm">
-                            <input class="search-box-sm" type="search" required="" id="search"
-                                   placeholder="Explore Materialize" data-search="template-list">
-                            <label class="label-icon" for="search"><i
-                                    class="material-icons search-sm-icon">search</i></label><i
-                                class="material-icons search-sm-close">close</i>
-                            <ul class="search-list collection search-list-sm display-none"></ul>
-                        </div>
-                    </form>
-                </div>
-            </nav>
-        </nav>
-    </div>
-</header>
+{% include 'base/header.html' %}
 <!-- END: Header-->
+
 <ul class="display-none" id="default-search-main">
     <li class="auto-suggestion-title">
         <a class="collection-item" href="#">
@@ -226,129 +160,20 @@
 </ul>
 
 <!-- BEGIN: SideNav-->
-<aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-dark sidenav-active-rounded">
-    <div class="brand-sidebar">
-        <h1 class="logo-wrapper">
-            <a class="brand-logo darken-1" href="http://localhost:8000/"><img class="hide-on-med-and-down "
-                                                                              src="{% static 'app-assets/images/logo/Logo.png' %}"
-                                                                              alt="carcity logo"/><img
-                    class="show-on-medium-and-down hide-on-med-and-up"
-                    src="{% static 'app-assets/images/logo/Logo.png' %}"
-                    alt="carcity logo"/><span class="logo-text hide-on-med-and-down">شهرک خودرویی</span></a><a
-                class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
-    </div>
-    <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out"
-        data-menu="menu-navigation" data-collapsible="accordion">
-{#        cars menu #}
-        <li class="bold">
-            <a class="collapsible-header waves-effect waves-cyan " href="Javascript:void(0)">
-                <i class="material-icons">
-                    receipt
-                </i>
-                <span class="menu-title" data-i18n="Invoice">
-                    خودرو ها
-                </span>
-            </a>
-            <div class="collapsible-body">
-                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                    <li>
-                        <a href="{% url 'car:car_page' %}">
-                            <i class="material-icons">radio_button_unchecked</i>
-                            <span data-i18n="Invoice View">
-                                لیست خودروها
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="material-icons">
-                                radio_button_unchecked
-                            </i>
-                            <span data-i18n="Invoice Edit">
-                                صفحه جستجو
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-{#        cars dealer menu #}
-        <li class="bold">
-            <a class="collapsible-header waves-effect waves-cyan " href="Javascript:void(0)">
-                <i class="material-icons">receipt</i>
-                <span class="menu-title" data-i18n="Invoice">
-                    نمایشگاه ها
-                </span>
-            </a>
-            <div class="collapsible-body">
-                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                    <li>
-                        <a href="">
-                            <i class="material-icons">radio_button_unchecked</i>
-                            <span data-i18n="Invoice List">ثبت خودرو جدید</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'car:car_page' %}">
-                            <i class="material-icons">radio_button_unchecked</i>
-                            <span data-i18n="Invoice View">لیست خودروها</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="material-icons">radio_button_unchecked</i>
-                            <span data-i18n="Invoice Edit">صفحه جستجو</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-    <div class="navigation-background"></div>
-    <a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only"
-       href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
-</aside>
+{% include 'base/sidenav.html' %}
 <!-- END: SideNav-->
 
 <!-- BEGIN: Page Main-->
-{% block content %}
-{% endblock %}
+{% block content %}{% endblock content %}
 <!-- END: Page Main-->
 
 <!-- BEGIN: Footer-->
-
-<footer class="page-footer footer footer-static footer-light navbar-border navbar-shadow">
-    <div class="footer-copyright">
-        <div class="container">
-            <span>&copy;
-                <a href="https://mohsenhafezi.com/" target="_blank">
-                    Mohi.Developer
-                </a>
-                    تمامی حقوق محفوظ است.
-            </span>
-        </div>
-    </div>
-</footer>
-
+{% include 'base/footer.html' %}
 <!-- END: Footer-->
-<!-- BEGIN VENDOR JS-->
-<script src="{% static 'app-assets/js/vendors.min.js' %}"></script>
-<!-- BEGIN VENDOR JS-->
-<!-- BEGIN PAGE VENDOR JS-->
-<script src="{% static 'app-assets/vendors/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
-<script src="{% static 'app-assets/vendors/imagesloaded.pkgd.min.js' %}"></script>
-<script src="{% static 'app-assets/vendors/masonry.pkgd.min.js' %}"></script>
-<!-- END PAGE VENDOR JS-->
-<!-- BEGIN THEME  JS-->
-<script src="{% static 'app-assets/js/plugins.min.js' %}"></script>
-<script src="{% static 'app-assets/js/search.min.js' %}"></script>
-<script src="{% static 'app-assets/js-rtl/custom/custom-script-rtl.min.js' %}"></script>
-<script src="{% static 'app-assets/js/scripts/customizer.min.js' %}"></script>
-<!-- END THEME  JS-->
-<!-- BEGIN PAGE LEVEL JS-->
-<script src="{% static 'app-assets/js/scripts/media-hover-effects.min.js' %}"></script>
-<script src="{% static 'app-assets/js/scripts/advance-ui-carousel.min.js' %}"></script>
-<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN: Footer_ref-->
+{% include 'base/footer_ref.html' %}
+<!-- End: Footer_ref-->
 </body>
 
 </html>
