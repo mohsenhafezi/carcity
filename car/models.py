@@ -2,6 +2,7 @@ from django.db import models
 from .validators import validate_year
 
 
+# this model is used for car dealers
 class Person(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)

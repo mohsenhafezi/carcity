@@ -1,15 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>index . html</title>
-</head>
-<body>
-<p>
-    this is a test with render and template - Home page
-</p>
-<a href="{% url 'car:car_page' %}">
-    Cars Page
-</a>
-</body>
-</html>
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    CarCity | Home
+{% endblock %}
+{% block content %}
+    <!-- END: SideNav-->
+    <div id="main">
+        <div class="row">
+            <!-- Search for small screen-->
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <h5 class="breadcrumbs-title"><span>شهرک خودرویی</span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12">
+            <div class="container">
+                <div class="section">
+                    <!--Prefilling Text Inputs-->
+                    <div class="row">
+                        <div class="col s12">
+                            <div id="carousel" class="card card-tabs">
+                                <div class="card-content">
+                                    <div id="view-carousel">
+                                        <div class="carousel">
+                                            <a class="carousel-item" href="">
+                                                <img src="{% static '/app-assets/images/gallery/1.png' %}"
+                                                     alt="">
+                                            </a>
+                                            <a class="carousel-item" href="">
+                                                <img src="{% static '/app-assets/images/gallery/2.png' %}"
+                                                     alt="">
+                                            </a>
+                                            <a class="carousel-item" href="">
+                                                <img src="{% static '/app-assets/images/gallery/3.png' %}"
+                                                     alt="">
+                                            </a>
+                                            <a class="carousel-item" href="">
+                                                <img src="{% static '/app-assets/images/gallery/4.png' %}"
+                                                     alt="">
+                                            </a>
+                                            <a class="carousel-item" href="">
+                                                <img src="{% static '/app-assets/images/gallery/5.png' %}"
+                                                     alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-overlay"></div>
+        </div>
+    </div>
+    <!-- END: Page Main-->
+
+{% endblock %}
