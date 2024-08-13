@@ -3,16 +3,27 @@
     <div class="navbar navbar-fixed">
         <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-light">
             <div class="nav-wrapper">
-                <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
-                    <input class="header-search-input z-depth-2 iransans" type="text" name="Search"
-                           placeholder="جست و جو..." data-search="template-list">
-                    <ul class="search-list collection display-none"></ul>
-                </div>
+{#                <div class="header-search-wrapper hide-on-med-and-down">#}
+{#                    <i class="material-icons">search</i>#}
+{#                    <form action="" method="get">#}
+{#                        <div>#}
+{#                             <input class="header-search-input z-depth-2 iransans" type="text" name="Search"#}
+{#                                   placeholder="جست و جو..." data-search="template-list">#}
+{#                            <button type="submit" class="btn btn-primary">search</button>#}
+{#                        </div>#}
+{#                    </form>#}
+                    {#                    <ul class="search-list collection display-none"></ul>#}
+{#                </div>#}
                 <ul class="navbar-list right">
                     <li style="color: #0b0b0b"><strong>{% now 'H:i - Y/d/m' %}</strong></li>
-                    <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);"
-                           data-target="profile-dropdown"><span class="avatar-status avatar-online"><img
-                            src="{% static 'app-assets/images/avatar/avatar-7.png' %}" alt="avatar"><i></i></span></a>
+                    <li>
+                        <a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);"
+                           data-target="profile-dropdown">
+                            <span class="avatar-status avatar-online">
+                                <img src="{% static 'app-assets/images/avatar/avatar-7.png' %}" alt="avatar">
+                                <i></i>
+                            </span>
+                        </a>
                     </li>
                 </ul>
 

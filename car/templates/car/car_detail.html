@@ -2,60 +2,67 @@
 {% load humanize %}
 
 {% block title %}
-	Car Information
+    Car Information
 {% endblock %}
 {% block content %}
-	<div id="main">
-    <div class="row">
-        <div class="pt-1 pb-0" id="breadcrumbs-wrapper">
-            <!-- Search for small screen-->
-            <div class="container">
-                <div class="row">
-                    <div class="col s12 m6 l6">
-                        <h5 class="breadcrumbs-title"><span>صفحه خودرو </span></h5>
+    <div id="main">
+        <div class="row">
+            <div class="pt-1 pb-0" id="breadcrumbs-wrapper">
+                <!-- Search for small screen-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 m6 l6">
+                            <h5 class="breadcrumbs-title"><span>صفحه خودرو </span></h5>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col s12">
-{#        this div will show the car#}
-            <div class="container">
-                {% if car %}
-                    <div class="section">
-                        <div class="card">
-                            <div class="card-content">
-                                <p class="caption mb-0">تست شهرک نمایشگاهی خودرو MOHI</p>
+            <div class="col s12">
+                {#        this div will show the car#}
+                <div class="container">
+                    {% if car %}
+                        <div class="section">
+                            <div class="card">
+                                <div class="card-content">
+                                    <p class="caption mb-0">تست شهرک نمایشگاهی خودرو MOHI</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <h4 class="col s12">{{ car.model }} {{ car.brand }}</h4>
-                            {#this div's show the cars#}
-                            <div class="col s12 m12 grid">
-                                                               <div class="col s12">
-                                    <div class="card animate fadeUp">
-                                        <div class="card-content">
-                                            <div class="row" id="product-four">
-                                                <div class="col m6 s12">
-                                                    <img src="{{ car.image.url }}" class="responsive-img" alt="{{ car.model }} {{ car.brand }}">
-                                                </div>
-                                                <div class="col m6 s12">
-                                                    <p>{{ car.brand }}</p>
-                                                    <h5>{{ car.model }}</h5>
-{#                                                    <span class="new badge left ml-0 mr-2" data-badge-caption="">4.2 امتیاز</span>#}
-                                                    </br>
-{#                                                    <p>دسترسی : <span class="green-text">موجود</span></p>#}
-                                                    <hr class="mb-5">
-{#                                                    <span class="vertical-align-top mr-4"><i class="material-icons mr-3">favorite_border</i>لیست علاقه مندی ها</span>#}
-                                                    <ul class="list-bullet">
-                                                        <li class="list-item-bullet">سال ساخت: {{ car.year }}</li>
-                                                        <li class="list-item-bullet">میزان کارکرد: {{ car.kilometers | intcomma}} کیلومتر </li>
-                                                        <li class="list-item-bullet">شهر: {{ car.city }}</li>
-                                                        <li class="list-item-bullet">رنگ: {{ car.color }}</li>
-                                                        <li class="list-item-bullet">ثبت کننده آگهی: {{ car.registered_by }}</li>
-                                                        <li class="list-item-bullet">تاریخ ثبت آگهی: {{ car.created_date | date:"Y/m/d" }}</li>
-                                                    </ul>
-                                                    <h5 class="red-text">تومان: {{ car.price | intcomma }}</h5>
-                                                    <a class="waves-effect waves-light btn gradient-45deg-purple-deep-orange z-depth-4 mt-2">هم اکنون خریداری کنید</a>
+                            <div class="row">
+                                <h4 class="col s12">{{ car.model }} {{ car.brand }}</h4>
+                                {#this div show the cars#}
+                                <div class="col s12 m12 grid">
+                                    <div class="col s12">
+                                        <div class="card animate fadeUp">
+                                            <div class="card-content">
+                                                <div class="row" id="product-four">
+                                                    <div class="col m6 s12">
+                                                        <img src="{{ car.image.url }}" class="responsive-img"
+                                                             alt="{{ car.model }} {{ car.brand }}">
+                                                    </div>
+                                                    <div class="col m6 s12">
+                                                        <p>{{ car.brand }}</p>
+                                                        <h5>{{ car.model }}</h5>
+                                                        <!-- <span class="new badge left ml-0 mr-2" data-badge-caption="">4.2 امتیاز</span>#} -->
+                                                        </br>
+                                                        <!--  <p>دسترسی : <span class="green-text">موجود</span></p> -->
+                                                        <hr class="mb-5">
+                                                        <!-- <span class="vertical-align-top mr-4"><i class="material-icons mr-3">favorite_border</i>لیست علاقه مندی ها</span> -->
+                                                        <ul class="list-bullet">
+                                                            <li class="list-item-bullet">سال ساخت: {{ car.year }}</li>
+                                                            <li class="list-item-bullet">میزان
+                                                                کارکرد: {{ car.kilometers | intcomma }} کیلومتر
+                                                            </li>
+                                                            <li class="list-item-bullet">شهر: {{ car.city }}</li>
+                                                            <li class="list-item-bullet">رنگ: {{ car.color }}</li>
+                                                            <li class="list-item-bullet">ثبت کننده
+                                                                آگهی: {{ car.registered_by }}</li>
+                                                            <li class="list-item-bullet">تاریخ ثبت
+                                                                آگهی: {{ car.created_date | date:"Y/m/d" }}</li>
+                                                        </ul>
+                                                        <h5 class="red-text">تومان: {{ car.price | intcomma }}</h5>
+                                                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-orange z-depth-4 mt-2">هم
+                                                            اکنون خریداری کنید</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -63,11 +70,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endif %}
+                    {% endif %}
+                </div>
+                <div class="content-overlay"></div>
             </div>
-            <div class="content-overlay"></div>
         </div>
     </div>
-</div>
 {% endblock %}
