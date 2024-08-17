@@ -28,3 +28,7 @@ def car_search(request):
         cars = Car.objects.filter(is_show=True).order_by('-id')[:2]
     context = {'cars': cars}
     return render(request, 'car/car_search.html', context)
+
+
+def car_create(request):
+    return render(request, 'car/car_add.html')

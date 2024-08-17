@@ -1,0 +1,92 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %} Add Cars {% endblock %}
+
+{% block content %}
+    <div id="main">
+        <!-- add a new car -->
+        <div class="row">
+            <div class="col s12">
+                <div id="icon-prefixes" class="card card-tabs">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <div class="row">
+                                <div class="col s12 m6 l10">
+                                    <h4 class="card-title">ثبت خودروی جدید</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="view-icon-prefixes">
+                            <div class="row">
+                                <form class="col s12" method="post" action="{% url 'car:car_create' %}">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <i class="material-icons prefix">location_city</i>
+                                            <input id="brand" name="brand" type="text">
+                                            <label class="contact-input" for="brand">برند</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <i class="material-icons prefix">directions_car</i>
+                                            <input id="model" name="model" type="text">
+                                            <label class="contact-input" for="model">مدل</label>
+                                        </div>
+                                        {#                                        <div class="input-field col s6">#}
+                                        {#                                            <i class="material-icons prefix">image</i>#}
+                                        {#                                            <input id="image" name="image" type="text">#}
+                                        {#                                            <label class="contact-input" for="image">تصویر</label>#}
+                                        {#                                        </div>#}
+                                        <div class="file-field input-field col s6">
+                                            <div class="btn">
+                                                <span>تصویر</span>
+                                                <input type="file">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <label>
+                                                    <input class="file-path validate" name="image" type="text">
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <i class="material-icons prefix">color_lens</i>
+                                            <input id="color" name="color" type="text">
+                                            <label class="contact-input" for="color">رنگ</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <i class="material-icons prefix">date_range</i>
+                                            <input id="year" name="year" type="text">
+                                            <label class="contact-input" for="year">سال ساخت</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <i class="material-icons prefix">history</i>
+                                            <input id="kilometers" name="kilometers" type="text">
+                                            <label class="contact-input" for="kilometers">مقدار کارکرد</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <i class="material-icons prefix">attach_money</i>
+                                            <input id="price" name="price" type="text">
+                                            <label class="contact-input" for="price">قیمت</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <i class="material-icons prefix">location_on</i>
+                                            <input id="city" name="city" type="text">
+                                            <label class="contact-input" for="city">شهر</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary col l2 m2 s12">ثبت اطلاعات</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="html-icon-prefixes">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block additional_scripts %}
+    <script src="{% static 'app-assets/js/scripts/form-elements.min.js' %}"></script>
+{% endblock %}
