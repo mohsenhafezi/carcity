@@ -23,7 +23,26 @@
                                 <form class="col s12" method="post" action="{% url 'car:car_create' %}">
                                     {% csrf_token %}
                                     <div class="row">
-                                        <div class="input-field col s6">
+                                        {{ form }}
+                                        <button type="submit" class="btn btn-primary col l2 m2 s12">ثبت اطلاعات</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="html-icon-prefixes">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block additional_scripts %}
+    <script src="{% static 'app-assets/js/scripts/form-elements.min.js' %}"></script>
+{% endblock %}
+
+{% comment %}
+	<div class="input-field col s6">
                                             <i class="material-icons prefix">location_city</i>
                                             <input id="brand" name="brand" type="text">
                                             <label class="contact-input" for="brand">برند</label>
@@ -33,11 +52,6 @@
                                             <input id="model" name="model" type="text">
                                             <label class="contact-input" for="model">مدل</label>
                                         </div>
-                                        {#                                        <div class="input-field col s6">#}
-                                        {#                                            <i class="material-icons prefix">image</i>#}
-                                        {#                                            <input id="image" name="image" type="text">#}
-                                        {#                                            <label class="contact-input" for="image">تصویر</label>#}
-                                        {#                                        </div>#}
                                         <div class="file-field input-field col s6">
                                             <div class="btn">
                                                 <span>تصویر</span>
@@ -74,19 +88,4 @@
                                             <input id="city" name="city" type="text">
                                             <label class="contact-input" for="city">شهر</label>
                                         </div>
-                                        <button type="submit" class="btn btn-primary col l2 m2 s12">ثبت اطلاعات</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div id="html-icon-prefixes">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
-{% block additional_scripts %}
-    <script src="{% static 'app-assets/js/scripts/form-elements.min.js' %}"></script>
-{% endblock %}
+{% endcomment %}

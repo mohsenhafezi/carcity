@@ -2,6 +2,7 @@ from django.db.models import Q
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 from .models import Car
+from .forms import CreateCarForm
 
 
 def car_page(request):
@@ -31,4 +32,6 @@ def car_search(request):
 
 
 def car_create(request):
-    return render(request, 'car/car_add.html')
+    form = CreateCarForm()
+    context = {'form': form}
+    return render(request, 'car/car_add.html', context)
