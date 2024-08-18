@@ -12,3 +12,4 @@ class CreateCarForm(forms.Form):
     kilometers = forms.IntegerField(label='میزان کارکرد خودرو')
     price = forms.IntegerField(label='قیمت خودرو')
     city = forms.CharField(max_length=100, label='شهر')
+    registered_by = forms.IntegerField()

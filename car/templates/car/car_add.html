@@ -20,7 +20,7 @@
                         </div>
                         <div id="view-icon-prefixes">
                             <div class="row">
-                                <form class="col s12" method="post" action="{% url 'car:car_create' %}">
+                                <form class="col s12" method="post" action="{% url 'car:car_create' %}" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <div class="row">
                                         {{ form }}
